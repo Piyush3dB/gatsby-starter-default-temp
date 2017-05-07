@@ -19,4 +19,34 @@ module.exports = React.createClass({
       </div>
     )
   },
+  componentDidMount() {
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'], ['\(', '\)'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+      MathJax.Hub.Queue(['Typeset', MathJax.Hub])
+  },
+  componentDidUpdate() {
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'], ['\(', '\)'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+      MathJax.Hub.Queue(['Typeset', MathJax.Hub])
+  }
 })
